@@ -13,4 +13,8 @@ def signupuser(request):
             )
             user.save()
         else:
-            print("else")
+            return render(
+                request,
+                "todo/signupuser.html",
+                {"form": UserCreationForm(), "error": "Passwords did not match"},
+            )
