@@ -71,6 +71,13 @@ def currenttodos(request):
     return render(request, "todo/currenttodos.html", {"todos": todos})
 
 
+def completedtodos(request):
+    todos = Todo.objects.filter(user=request.user, datecompleted__isnull=False).order_by(
+        "-datecompleted"
+    )
+    return render(request, "todo/completedtodos.html", {"todos": todos})
+
+
 def createtodo(request):
     if request.method == "GET":
         return render(request, "todo/createtodo.html", {"form": TodoForm()})
