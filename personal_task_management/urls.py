@@ -23,5 +23,6 @@ urlpatterns = [
     path("login/", views.loginuser, name="loginuser"),
     path("logout/", views.logoutuser, name="logoutuser"),
     path("current/", views.currenttodos, name="currenttodos"),
+    path("create/", views.createtodo, name="createtodo"),
     path("", views.home, name="home"),
 ]
